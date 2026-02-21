@@ -16,7 +16,7 @@ function App() {
     const secondClass = first < second ? 'negative' : first > second ? 'positive' : '';
     const weekClass = first < week ? 'negative' : first > week ? 'positive' : '';
 
-    const percent = first < second ?Math.round(first / second * 100) - 100 : 
+    const percent = first < second ? Math.round(first / second * 100) - 100 : 
     first > second ? Math.round(100 * first/second) - 100 : 0;
 
     return(
@@ -25,11 +25,10 @@ function App() {
         <td className={`${secondClass} secondClass`}>
           <p>{second.toLocaleString('ru-RU')}</p>
           <p>{percent}%</p>
-          </td>
+        </td>
         <td className={weekClass}>{week.toLocaleString('ru-RU')}</td>
       </>
     )
-
   };
 
   const viewChartHandle = (ind) => {
@@ -42,11 +41,9 @@ function App() {
       <table className='container'>
         <thead>
           <tr>
-            {
-              COLUM.map((val) => (
-                <th key={val} scope="col">{val}</th>
-              ))
-            }
+            {COLUM.map((val) => (
+              <th key={val} scope="col">{val}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
@@ -56,15 +53,20 @@ function App() {
                 <th scope="row">{name}</th>
                 {colorCell(value)}
               </tr>
-              {
-                viewChart && index === viewChartIndex && 
-                  <ChartComponent value={value}/>
+              {viewChart && index === viewChartIndex && 
+                <tr className="chart-row">
+                  <td colSpan={4} >
+                    <div className='chart'>
+                      <ChartComponent value={value} />
+                    </div>
+                  </td>
+                </tr>
               }                
             </Fragment>
           ))}          
         </tbody>
       </table>
-      </>
+    </>
   );
 }
 

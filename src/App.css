@@ -1,31 +1,50 @@
 .container {
   width: 100%;
-  margin: 0;
+  height: 100%;
+  margin: auto;
   padding: 0;
   font-size: 12px;
   font-family:Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  text-align: center;
 }
 
 thead, tbody{
   background-color: rgba(227, 227, 227, 0.5);
 }
 
-th, td {
-  border: 1px white;
-       
+.container th,
+.container td {
+  padding: 8px;
+  border: 3px solid white;
 }
 
-th:first-child , td:first-child {
-  display: flex;
+/* Стили для строки с графиком */
+.container .chart-row td {
+  padding: 0;
+  border: none;  
+  background-color: white;
 }
-th:last-child, td:last-child {
-  text-align: right;
+
+
+.container tbody tr th {
+  text-align: left;
 }
 
 th:nth-child(2), td:nth-child(2) {
   background-color: rgba(139, 230, 255, 0.2);
   text-align: center;
 }
+
+td:last-child {
+  text-align: right;
+}
+
+.secondClass{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+} 
 
 .positive{
   background-color: rgba(156, 223, 149, 0.2);
@@ -35,8 +54,7 @@ th:nth-child(2), td:nth-child(2) {
   background-color: rgba(255, 109, 109, 0.2);
 }
 
-.secondClass{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.chart{
+  width: 70%;
+  margin: auto;
 }
